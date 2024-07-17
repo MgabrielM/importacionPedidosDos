@@ -19,7 +19,7 @@ function App() {
     if (csvData) {
       const newResults = [];
       csvData.forEach((row) => {
-        const url = new URL('/api/nwtecuador/PedidoActionCrearWS', window.location.origin);
+        const url = new URL('https://naturaecuador.intrasites.com/nwtecuador/PedidoActionCrearWS', window.location.origin);
         Object.keys(row).forEach(key => {
           url.searchParams.append(key, row[key]);
         });
@@ -52,11 +52,10 @@ function App() {
 
       <div>
         <h2>Resultados de las Solicitudes POST:</h2>
-        <ul>
+        <ul> Cantidad total:
           {results.map((result, index) => (
             <li key={index}>
-              <strong>Fila:</strong> {JSON.stringify(result.row.idPedido)}<br />
-              <strong>Resultado:</strong> {JSON.stringify(result.result.respuesta)}
+              <strong>idPedido:</strong> {JSON.stringify(result.row.idPedido)} {'   --> '}   <strong>Resultado:</strong> {JSON.stringify(result.result.respuesta)}
             </li>
           ))}
         </ul>
